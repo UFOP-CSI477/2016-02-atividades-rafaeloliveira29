@@ -1,0 +1,56 @@
+\documentclass[10pt,a4paper,article]{abntex2}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{url}
+
+% Nome dos autores do trabalho
+\author{Grupo: Rafael Souza Oliveira e Michel Wagner Ferreira}
+\title{CSI477-2016-02 -- Proposta de Trabalho Final}
+\begin{document}
+
+	\maketitle
+
+	% Descrever um resumo sobre o trabalho.
+	\begin{abstract}
+		O objetivo deste documento é apresentar uma proposta para o trabalho a ser desenvolvido na disciplina CSI477 -- Sistemas WEB I.  O trabalho consiste num sistema de estacionamento privado que deve ter controle de entrada, saida e estadia de veiculos, bem como tratar fechamentos de diárias, fechamentos de meses e anos em relação a faturamento e fluxo.
+	\end{abstract}		
+	
+	% Apresentar o tema.
+	\section{Tema}
+	
+	O trabalho final tem como tema o desenvolvimento de um sistema Web para controle de entrada, saída e estadia de veiculos em um estacionamento privado.
+		
+	% Descrever e limitar o escopo da aplicação.
+	\section{Escopo}
+	
+		Este projeto terá as seguintes funcionalidades:
+\begin{itemize}
+	\item Registro dos veiculos que entram e saem do estacionamento - Este registro deve conter, hora de entrada, saida, placa do veiculo, valor da hora de estadia e valor total para o comprovante de saída.
+	\item Emissão do comprovante de entrada e saida em 2 vias, uma para o estabelecimento e outra para o motorista.
+	\item Possibilidade de reserva de vagas por tempo.
+	\item Possibilidade de marcação de vagas ocupadas e vagas desocupadas, de forma que o motorista deve ser informado em qual vaga estacionar. Este codigo de vaga deve estar no comprovante de entrada.
+	\item Calculo de receita diária, mensal, anual.Deve Possibilitar o fechamento do periodo, em relação a fluxo e valores.
+	\item Devem ser oferecidas formas de pagamento diversas.
+	\item Quando um motorista deixar a vaga, e a baixa for dada no sistema , esta vaga deve ser marcada como livre novamente.
+	\item Veiculos devem ser tratados como, carro, moto, caminhão, bicicleta, carroça, lancha, barco, jet ski...etc pois cada tipo de veiculo deve ter um valor de estadia diferente.
+\end{itemize}
+
+- Serão considerados que o motorista recebe um comprovante de chegada(comprovante de que o carro que está no estacionamento é dele) e outro comprovante de saída(cupom que prova que o carro foi retirado, o valor total foi pago e a vaga liberada).
+
+
+	% Apresentar restrições de funcionalidades e de escopo.
+	\section{Restrições}
+
+		Neste trabalho não serão considerados horarios limite de funcionamento considerando que o estacionamento será 24horas, emissão de cupom fiscal, tratamento de ocorrencias dentro do estacionamento(batidas, roubos, dentre outros) e a localização do estacionamento também é irrelevante.
+
+	% Incluir o link do repositório
+	\section{Repositório}
+
+		O trabalho final terá como repositório principal o seguinte endereço: \url{https://github.com/UFOP-CSI477/2016-02-trabalho-final-aplicativoestacionamento}.
+
+	% Referências podem ser incluídas, caso necessário.
+	%\section{Referências}
+
+\end{document}
