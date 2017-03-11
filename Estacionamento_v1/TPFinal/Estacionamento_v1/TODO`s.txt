@@ -1,0 +1,3 @@
+Fazer validacao campos de inser~cao de veiculos
+Verificar o dropdown do login/logout
+verificar sobre login duplicado quando clica em veiculos ou relatorios pela primeira vez
