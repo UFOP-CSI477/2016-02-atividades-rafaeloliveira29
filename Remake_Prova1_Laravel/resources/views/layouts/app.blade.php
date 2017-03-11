@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Eventos Esportivos') }}</title>
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -28,6 +28,7 @@
 
                     <!-- Collapsed Hamburger -->
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
+                        <span class="sr-only">Toggle Navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -49,30 +50,12 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                            <li><a href="{{ route('login') }}">Login Administração</a></li>
-                            <li><a href="auth/atleta/login">Login Atleta</a></li>
-                            <li><a href="/eventos">Eventos</a></li>
-                               <!-- <li><a href="{{ route('register') }}">Registrar Admin</a></li>-->
-                            
-                            
-                            
+                            <li><a href="{{ route('login') }}">Login</a></li>
+                            <li><a href="{{ route('register') }}">Register</a></li>
                         @else
-                                <li><a href="/admin/eventos/index">Eventos</a></li>
-                                <li><a href="/admin/eventos/registros">Tabela de Registros</a></li>
-                                <li><a href="/admin/atletas">Tabela de Atletas</a></li>
-                                <li><a href="#">Relatorio Geral</a></li>
-                                <li><a href="{{ route('register') }}">Registrar Admin</a></li>
-                                
-
-                                
-                                
-                                
-                        
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                <span class="caret"></span>
-                                {{ Auth::user()->name }} 
-                                    
+                                    {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
