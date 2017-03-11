@@ -1,6 +1,0 @@
-- Entrada do Veiculo 
-    - Registra -> Placa,Modelo,tipo, Hora de Entrada. -> tabela veiculos_perm
-
-- Saida do veiculo 
-    - Registra -> Hora de Saida, Valor final baseado na hora de entrada - hora de saida * valor da hora.-> registra em veiculos_rel
-                ->Mostra pro usuario dados de veiculos_temp($id)
