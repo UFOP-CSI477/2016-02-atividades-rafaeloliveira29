@@ -16,24 +16,13 @@ use App\Http\Controllers;
 
 Route::get('/eventos',['as'=>'eventos.index','uses'=>'EventosController@index']);//eventos
 
-
-//Rotas Administrador
-
-
-
-
-
-Auth::routes();
-
-Route::get('/auth/atleta/login', 'HomeController@atletalogin');
-
-
 Route::get('/auth/login', 'HomeController@login');
 
 Route::get('/auth/register', 'HomeController@register');
 
+//Rotas Administrador
 
-    Route::get('admin/eventos/index',['as'=>'admin.eventos.index','uses'=>'EventosAdminController@index']);//->middleware('auth');
+Route::get('admin/eventos/index',['as'=>'admin.eventos.index','uses'=>'EventosAdminController@index']);//->middleware('auth');
 Route::get('admin/eventos/registros',['as'=>'admin.eventos.registros','uses'=>'EventosController@registros']);//->middleware('auth');
 Route::get('admin/eventos/create',['as'=>'admin.eventos.create','uses'=>'EventosAdminController@create']);//->middleware('auth');
 Route::post('admin/eventos/store',['as'=>'admin.eventos.store','uses'=>'EventosAdminController@store']);//->middleware('auth');
@@ -43,5 +32,8 @@ Route::get('admin/eventos/destroy/{id}',['as'=>'admin.eventos.destroy','uses'=>'
 Route::get('admin/atletas',['as'=>'admin.atletas','uses'=>'AtletaController@atletas']);//->middleware('auth');
 
 Auth::routes();
+    Route::get('atleta/index',['as'=>'atleta.index','uses'=>'AtletaController@index']);//->middleware('auth');
+    Route::get('atleta/eventos',['as'=>'eventos.index','uses'=>'EventosController@index']);//->middleware('auth');
+    Route::get('/logout','HomeController@login');
+    
 
-Route::get('/eventos', 'EventosController@index');

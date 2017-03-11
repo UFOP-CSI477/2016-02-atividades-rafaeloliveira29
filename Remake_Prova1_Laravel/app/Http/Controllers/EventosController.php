@@ -20,15 +20,9 @@ class EventosController extends Controller
     public function index()
     {
         //
-                if(Auth::user()->type ==2){
 
          $eventos = \App\Eventos::all();
-        return view('atleta.index',compact('eventos'));
-                }
-                if(Auth::user()->type ==1){
-
-        return view('admin.eventos.index');
-                }
+        return view('eventos.index',compact('eventos'));
 
     }
 

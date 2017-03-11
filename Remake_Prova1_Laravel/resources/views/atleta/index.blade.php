@@ -49,15 +49,14 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                            <li><a href="{{ route('login') }}">Login Administração</a></li>
-                            <li><a href="auth/atleta/login">Login Atleta</a></li>
+                            <li><a href="{{ route('login') }}">Login </a></li>
                             <li><a href="eventos/index">Eventos</a></li>
                                <!-- <li><a href="{{ route('register') }}">Registrar Admin</a></li>-->
                             
                             
                             
                         @else
-                                <li><a href="/eventos">Eventos Disponiveis</a></li>
+                                <li><a href="/atleta/eventos">Eventos Disponiveis</a></li>
                                 <li><a href="#">Eventos em que Estou Inscrito</a></li>
                                 
                                 
