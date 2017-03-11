@@ -11,7 +11,7 @@
 <hr>
 <h2 class="w3-center">PetShopPet</h2>
 @if(Auth::check())
-Bem Vindo {{ Auth::user()->name }}, boas Compras. <span class="caret"></span>
+
 @endif
 <div class="w3-bar w3-blue-grey">
 @if (Auth::guest())
@@ -26,7 +26,7 @@ Bem Vindo {{ Auth::user()->name }}, boas Compras. <span class="caret"></span>
 @endif
   @if (Auth::check())
   @if(Auth::user()->usertype==2)
-  
+  Bem Vindo {{ Auth::user()->name }}, bom trabalho. <span class="caret"></span>
 <!--Usuario Admin esta logado-->
    <a href="/" class="w3-bar-item w3-button w3-padding-16">Home</a>
   <a href="admin/produto/index" class="w3-bar-item w3-button w3-padding-16">Modificar/Inserir Produtos</a>
@@ -36,7 +36,7 @@ Bem Vindo {{ Auth::user()->name }}, boas Compras. <span class="caret"></span>
 @endif
   @if (Auth::check())
    @if(Auth::user()->usertype==1)
-   
+   Bem Vindo {{ Auth::user()->name }}, boas Compras. <span class="caret"></span>
 <!--Usuario Cliente esta logado-->
    <a href="/" class="w3-bar-item w3-button w3-padding-16">Home</a>
   <a href="/produtosall" class="w3-bar-item w3-button w3-padding-16">Produtos</a>
@@ -47,7 +47,7 @@ Bem Vindo {{ Auth::user()->name }}, boas Compras. <span class="caret"></span>
 @endif
     @if (Auth::check())
   @if(Auth::user()->usertype==3)
-  
+  Bem Vindo {{ Auth::user()->name }}, bom trabalho. <span class="caret"></span>
 <!--Usuario operador esta logado-->
    <a href="/" class="w3-bar-item w3-button w3-padding-16">Home</a>
   <a href="operador/produto/index" class="w3-bar-item w3-button w3-padding-16">Modificar Produtos</a>

@@ -12,9 +12,12 @@ use Auth;
 
 class ProdutosController extends Controller
 {
+     
       private $produto;
 public function __construct(Produto $produto)
 {
+        $this->middleware('auth');
+    
 $this->produto = $produto;
 }
 

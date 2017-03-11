@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 class ProdutosAllController extends Controller
 {
+     public function __construct()
+    {
+        $this->middleware('auth');
+    }
     //Exibe produtos para todos os usuarios sem autenticação'
      public function index()
     {

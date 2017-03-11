@@ -37,7 +37,6 @@ Route::put('operador/produto/update/{id}',['as'=>'operador.produtos.update','use
 
 //rotas de autenticaçao'
 
-Auth::routes();
 
 Route::get('/auth/login', 'HomeController@index');
 

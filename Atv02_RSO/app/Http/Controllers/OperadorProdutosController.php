@@ -6,11 +6,14 @@ use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
 use App\Produto;
 
+
 class OperadorProdutosController extends Controller
 {
       private $produto;
 public function __construct(Produto $produto)
 {
+        $this->middleware('auth');
+    
 $this->produto = $produto;
 }
 
