@@ -15,7 +15,9 @@ Route::get('/',['as'=>'home.index','uses'=>'IndexController@index']);//home
 Route::get('/produtosall',['as'=>'produtosall.index','uses'=>'ProdutosAllController@index']);//produtos sem login
 
 //, 'middleware'=>'auth' -> colocar em admin
+//Rota de Compra
 
+Route::post('/comprar',['as'=>'produtosall.carrinho','uses'=>'ProdutosAllController@comprar']);
 //Rotas Administrador
 
 Route::get('admin/produto/index',['as'=>'admin.produtos.index','uses'=>'ProdutosController@index']);//->middleware('auth');

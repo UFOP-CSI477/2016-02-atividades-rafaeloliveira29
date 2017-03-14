@@ -20,7 +20,7 @@ public function __construct(Produto $produto)
     
 $this->produto = $produto;
 }
-
+       
 
     public function index()
     {
