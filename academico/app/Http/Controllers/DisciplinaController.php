@@ -23,9 +23,15 @@ class DisciplinaController extends Controller
     {
         if(Auth::user()->type ==2){
         $disciplinas = Disciplina::all();
+        //dd($request->session()-all()); mostr os dados da sessao.
+        //gravar elemento na secao
+        //session()->forget('nome');//limpa o nome
+       // session(['nome'=>'rafael']);
+
         return view('disciplinas.index')->with('disciplinas',$disciplinas);
         }
         else{
+            session()->flash('error','Disciplina acesso nao autorizado!!!');
             return redirect('/');
         }
     }
@@ -50,6 +56,7 @@ class DisciplinaController extends Controller
     {
         //dd($request->all());
         Disciplina::create($request->all());
+        session()->flash('info','Disciplina Inserid com sucesso');
         return redirect('/disciplinas');
     }
 

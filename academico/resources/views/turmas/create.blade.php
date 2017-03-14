@@ -13,7 +13,12 @@
           </div>
            <div class="form-group">
           <label for="codigo">Disciplina</label>
-          <input type="text" name="codigo" class="form-control" /><br>
+          <select type="text" name="disciplina_id" class="form-control" >
+           @foreach($disciplinas as $d)
+          <option value="{{$d->id}}"> {{$d->nome}}</option>
+          @endforeach
+          </select>
+          <br>
           </div>
           
           <input type="submit" value="Salvar" class="btn  btn-primary"/>

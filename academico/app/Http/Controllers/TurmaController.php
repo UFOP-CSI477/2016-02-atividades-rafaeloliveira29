@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use \App\Turma;
 use Illuminate\Support\Facades\Auth;
+use \App\Disciplina;
 
 class TurmaController extends Controller
 {
@@ -33,7 +34,8 @@ class TurmaController extends Controller
      */
     public function create()
     {
-        return view('turmas.create');
+       $disciplinas=Disciplina::all();
+        return view('turmas.create')->with('disciplinas',$disciplinas);
     }
 
     /**

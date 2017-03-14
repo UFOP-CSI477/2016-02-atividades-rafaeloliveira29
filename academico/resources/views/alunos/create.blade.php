@@ -35,5 +35,5 @@
           <a href="/alunos" value="Voltar" class="btn  btn-primary">Voltar</a>
 
           
-
+</form>
 @endsection

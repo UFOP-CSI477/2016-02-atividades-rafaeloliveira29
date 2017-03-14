@@ -115,8 +115,22 @@
     </div>
 
     <div class="col-sm-8 text-left">
+    <div class="content">
+      @if(Session::has('error'))
+      <div class="alert alert-danger">{{Session::get('error')}}</div>
+      @endif
+       <div class="content">
+      @if(Session::has('info'))
+      <div class="alert alert-info">{{Session::get('info')}}</div>
+      @endif
+      <div class="content">
+      @if(Session::has('warning'))
+      <div class="alert alert-warning">{{Session::get('warning')}}</div>
+      @endif
 
+      @
       @yield('conteudo')
+      </div>
     </div>
 
     

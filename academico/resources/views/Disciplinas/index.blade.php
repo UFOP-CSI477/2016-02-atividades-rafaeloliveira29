@@ -3,6 +3,10 @@
 @section('conteudo')
 
         <h1>Disciplinas</h1>
+<!--
+        @if(Session::has('nome'))
+        {{Session::get('nome')}}
+        @endif-->
         <a href="/disciplinas/create" class = "btn btn-primary">Inserir</a>
         <table class="table  table-striped">
 

@@ -13,7 +13,12 @@
           </div>
            <div class="form-group">
           <label for="codigo">Estado</label>
-          <input type="text" name="estado" class="form-control" /><br>
+          <select type="text" name="estado_id" class="form-control" >
+          @foreach($estados as $e)
+          <option value="{{$e->id}}"> {{$e->nome}}-{{$e->sigla}}</option>
+          @endforeach
+          </select><br>
+          
           </div>
           
           <input type="submit" value="Salvar" class="btn  btn-primary"/>
