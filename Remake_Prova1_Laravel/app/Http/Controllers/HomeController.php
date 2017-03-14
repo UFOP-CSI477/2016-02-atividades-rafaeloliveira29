@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Auth;
+
 class HomeController extends Controller
 {
     /**
@@ -23,14 +23,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if(Auth::user()->type == 2){
-        return view('atleta.index');
-            
-        }
-        if(Auth::user()->type ==1){
-            return view('admin.eventos.index');
-        }
-        else
-        return view('welcome');
+        return view('home');
     }
 }

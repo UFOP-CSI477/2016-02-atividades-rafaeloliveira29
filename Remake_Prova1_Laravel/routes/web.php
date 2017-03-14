@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,28 +11,39 @@ use App\Http\Controllers;
 |
 */
 
+Route::get('/home', function(){
+	return view('home2');
+});
 
+Route::get('/', function () {
+    return view('home2');
+});
 
-Route::get('/eventos',['as'=>'eventos.index','uses'=>'EventosController@index']);//eventos
+Route::get('/eventos', 'EventosController@index');
 
-Route::get('/auth/login', 'HomeController@login');
+//-------------------------------------------------------------------------->>
+Route::get('/admin', 'AdmsController@index');
+Route::get('/admin/listaAtletas', 'AdmsController@listaAtletas');
 
-Route::get('/auth/register', 'HomeController@register');
+Route::get('/admin/listaRegistroEvento', 'AdmsController@indexEvento');
+Route::post('/admin/listaRegistroEvento', 'AdmsController@listaRegistroEvento');
 
-//Rotas Administrador
-
-Route::get('admin/eventos/index',['as'=>'admin.eventos.index','uses'=>'EventosAdminController@index']);//->middleware('auth');
-Route::get('admin/eventos/registros',['as'=>'admin.eventos.registros','uses'=>'EventosController@registros']);//->middleware('auth');
-Route::get('admin/eventos/create',['as'=>'admin.eventos.create','uses'=>'EventosAdminController@create']);//->middleware('auth');
-Route::post('admin/eventos/store',['as'=>'admin.eventos.store','uses'=>'EventosAdminController@store']);//->middleware('auth');
-Route::get('admin/eventos/edit/{id}',['as'=>'admin.eventos.edit','uses'=>'EventosAdminController@edit']);//->middleware('auth');
-Route::put('admin/eventos/update/{id}',['as'=>'admin.eventos.update','uses'=>'EventosAdminController@update']);//->middleware('auth');
-Route::get('admin/eventos/destroy/{id}',['as'=>'admin.eventos.destroy','uses'=>'EventosAdminController@destroy']);//->middleware('auth');
-Route::get('admin/atletas',['as'=>'admin.atletas','uses'=>'AtletaController@atletas']);//->middleware('auth');
+Route::get('/admin/listaRegistroAtleta', 'AdmsController@indexAtleta');
+Route::post('/admin/listaRegistroAtleta', 'AdmsController@listaRegistroAtleta');
+//-------------------------------------------------------------------------->>			
+			
+Route::get('/atletas', 'AtletasController@index');
+Route::get('/atletas/incluirRegistro', 'AtletasController@incluirRegistro');
+Route::post('/atletas/incluirRegistro', 'AtletasController@salvaRegistro');
 
 Auth::routes();
-    Route::get('atleta/index',['as'=>'atleta.index','uses'=>'AtletaController@index']);//->middleware('auth');
-    Route::get('atleta/eventos',['as'=>'eventos.index','uses'=>'EventosController@index']);//->middleware('auth');
-    Route::get('/logout','HomeController@login');
-    
+Route::get('/atletas/login', 'AtletasController@index');
+Route::post('/atletas/login', 'Auth\LoginController@login');
+Route::get('/atletas/logout', 'Auth\LoginController@logout');
+// Route::get('/atletas/cadastro', 'Auth\RegisterController@showRegistrationForm');
+// Route::post('/atletas/cadastro', 'Auth\RegisterController@register');
+
+
+// Route::get('/home', 'HomeController@index');
+//Route::get('/', function () {return view('welcome');});
 

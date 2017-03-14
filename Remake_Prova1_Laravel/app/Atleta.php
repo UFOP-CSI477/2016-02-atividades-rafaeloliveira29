@@ -2,11 +2,14 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Atleta extends Model
+class Atleta extends Authenticatable
 {
+    use Notifiable;
 
+    protected $rememberTokenName = false;
     /**
      * The attributes that are mass assignable.
      *
@@ -22,11 +25,10 @@ class Atleta extends Model
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'senha'
     ];
- public function user()
-    {
-        return $this->belongsTo('App\Atleta');
+
+    public function registro(){
+        return $this->hasMany('App\Registro');
     }
 }
-

@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Atleta;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 
 class LoginController extends Controller
 {
@@ -25,7 +28,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/eventos';
+    protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
@@ -36,4 +39,26 @@ class LoginController extends Controller
     {
         $this->middleware('guest', ['except' => 'logout']);
     }
+
+    public function login()
+    {
+        $input = Input::all();
+        $atleta = Atleta::where('login', $input['login'])->first();
+        if(!is_null($atleta))
+            if($atleta->senha == $input['senha']){
+                Auth::guard('web')->login($atleta);
+                return redirect(url('/atletas'));
+            }
+            else
+                return back();
+         else
+             return back();
+    }
+
+    public function logout(){
+        auth()->logout();
+
+        return redirect('/atletas/login');
+    }
+
 }

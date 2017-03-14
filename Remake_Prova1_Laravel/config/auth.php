@@ -16,7 +16,6 @@ return [
     'defaults' => [
         'guard' => 'web',
         'passwords' => 'users',
-        'passwordsatletas'=> 'atletas'
     ],
 
     /*
@@ -71,10 +70,10 @@ return [
             'model' => App\User::class,
         ],
 
-         'atletas' => [
-             'driver' => 'eloquent',
-             'model'=>App\Atleta::class,
-         ],
+        // 'users' => [
+        //     'driver' => 'database',
+        //     'table' => 'users',
+        // ],
     ],
 
     /*
@@ -99,6 +98,5 @@ return [
             'expire' => 60,
         ],
     ],
-    
 
 ];
