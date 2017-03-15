@@ -17,7 +17,7 @@ Route::get('/produtosall',['as'=>'produtosall.index','uses'=>'ProdutosAllControl
 //, 'middleware'=>'auth' -> colocar em admin
 //Rota de Compra
 
-Route::post('/comprar',['as'=>'produtosall.carrinho','uses'=>'ProdutosAllController@comprar']);
+Route::get('/comprar',['as'=>'produtosall.carrinho','uses'=>'ProdutosAllController@comprar']);
 //Rotas Administrador
 
 Route::get('admin/produto/index',['as'=>'admin.produtos.index','uses'=>'ProdutosController@index']);//->middleware('auth');
@@ -36,6 +36,10 @@ Route::put('operador/produto/update/{id}',['as'=>'operador.produtos.update','use
 //Rotas Cliente
     //Compra
     //Alterar dados pessais -> nome, senha, email
+Route::get('cliente/userdata/index',['as'=>'cliente.userdata.index','uses'=>'UserController@index']);
+Route::get('cliente/userdata/edit/{id}',['as'=>'cliente.userdata.edit','uses'=>'UserController@edit']);
+Route::put('cliente/userdata/update/{id}',['as'=>'cliente.userdata.update','uses'=>'UserController@update']);
+
 
 //rotas de autenticaçao'
 

@@ -27,9 +27,9 @@
 <td ><a class="btn btn-primary" href= "/auth/login" >Comprar</a></td>
 @endif
 @if (Auth::check())
-@if(Auth::user()->usertype==2)
-<td ><a class="btn btn-primary" type='submit' value="{{$produto->id}}" href= "/comprar" >Comprar</a></td>
-TELA DO CARRINHO DE COMPRAS
+@if(Auth::user()->usertype==1)
+<td ><a class="btn btn-primary"  href= "/comprar" >Comprar</a></td>
+
 @endif
 @endif
 </tr>
