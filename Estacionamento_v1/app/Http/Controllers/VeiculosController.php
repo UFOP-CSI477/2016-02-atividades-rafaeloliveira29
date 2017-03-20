@@ -7,6 +7,9 @@ use App\Veiculo_Permanente;
 use App\Veiculo_Temporario;
 use Carbon\Carbon;
 use App\Http\Requests\InserirVeiculoFormRequest;
+use Illuminate\Support\Facades\Validator;
+use Session;
+
 class VeiculosController extends Controller
 {
     //Deve gerenciar operacoes EDIT, CREATE, DELETE, UPDATE()
@@ -41,11 +44,17 @@ public function index()
     public function store(request $request)
     {
         //dd($request->all());
+        if($request->veiculo_placa == null || $request->veiculo_modelo==null || $request->veiculo_tipo ==null)
+        {
+            return view('veiculos.erro');
+        }
+        else if($request->veiculo_placa !=null && $request->veiculo_modelo!=null && $request->veiculo_tipo != null)
+        {
         Veiculo_Temporario::create($request->all());
         
         return redirect('/veiculos');
+        }
     }
-
     /**
      * Display the specified resource.
      *
@@ -130,8 +139,17 @@ public function index()
 //calculos do valor pago , tempo de estadia e registro da saida 
        $saida_real = Carbon::now();
        $valor_pago = ($tempo_estadia)*(6);
-       $veiculo->tempo_estadia = $tempo_estadia;//calcular
+       if($tempo_estadia>1440){
+           $dias = $tempo_estadia/24; //calcula quanto dis o cara ficou no estacionamento se o numero de minutos foi maior q um dia,
+                                        //para calcular o desconto se der uma diaria.
+            $valor_desconto_diaria = $dias *100;
+            $veiculo->valor_pago = $valor_desconto_diaria;
+
+       }else{
        $veiculo->valor_pago = $valor_pago;
+
+       }
+       $veiculo->tempo_estadia = $tempo_estadia;//calcular
        $veiculo->updated_at = $saida_real;
        $veiculo->status = 0;
        $veiculo->save();

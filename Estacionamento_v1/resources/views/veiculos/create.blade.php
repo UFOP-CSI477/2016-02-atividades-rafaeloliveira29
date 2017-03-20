@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-
+@if(Session::has('message'))
+<p class="alert alert-info">{{ Session::get('message') }}</p>
+@endif
         <h1>Inserir Veiculo</h1>
 @if (count($errors) > 0)
     <div class="alert alert-danger">

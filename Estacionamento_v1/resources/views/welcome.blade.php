@@ -75,46 +75,49 @@
     </head>
     
     <body>
-       
+        <div class="flex-center position-ref full-height">
+        
+            @if (Route::has('login'))
+                <div class="top-right links">
+                    @if (Auth::check())
+                        <a href="{{ url('/home') }}">Estacionamento Icea Park</a>
+                    @else
+                        <a href="{{ url('/login') }}">Login</a>
+                        
+                    @endif
+                </div>
+            @endif
 
             <div class="content">
+            @if(Auth::check())
             
-                
+                <div class="title m-b-md">
+                    Bem Vindo <br>{{ Auth::user()->name }}<br>
+                    Bom Trabalho<br>
+                    <br>
+                </div>
                     <div class="links">
-                    <br>
-                            <h1>ICEA PARK</h1>
-
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <a href="/relatorios/dia">Relatório Deste Dia</a>
-                    <a href="/relatorios/meses">Relatório Mensal</a>
-                    <a href="/relatorios/anos">Relatório Anual</a>
-                    
-                    <a href="/relatorios/total">Relatório Total</a>
-
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <a href="/">Voltar</a>
-                    
+                
+                    <a href="/veiculos">Veiculos</a>
+                    <a href="/relatorios">Relatórios</a>
+                    <a href="{{ route('register') }}">Registrar Novo Funcionário</a>
+                    <a href="{{Auth::logout()}}">Logout</a><br>
                     
           
-             
+            @else
+                 <div class="title m-b-md">
+                    <rafa>Bem Vindo ao Gereciador de Estacionamento</rafa><br>
+                        <hr style="height:2px;"></hr>
+                    <rafa>Faça Seu Login Para Iniciar a Jornada de Trabalho</rafa>
+                    
+                </div>
+            @endif
           
-            </div>
-           
-        </div>
-        
+          <footer class="container-fluid text-center">
+<p>Atividade Final - Sistemas Web - ICEA - UFOP - Sistemas de Informação</p>
+  <p>Rafael Souza Oliveira - 13.1.8411 / Michel Wagner Ferreira - #MatriculaMichel © Sistema De Estacionamento. Todos os direitos reservados.</p>
+</footer>
+       
     </body>
+
 </html>

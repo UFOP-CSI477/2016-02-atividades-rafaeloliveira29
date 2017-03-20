@@ -46,8 +46,21 @@
 <td>{{ $veiculo->updated_at}}</td>
 </tr>
 <tr>
+<td>Valor da Hora=></td>
+<td>R$6.00</td>
+</tr>
+<tr>
+<td>Valor da Diária=>Caso Seu veiculo permaneça por uma diária o desconto é automaticamente aplicado.</td>
+<td>R$100.00</td>
+</tr>
+<tr>
 <td>Valor Final=></td>
-<td>R${{ $veiculo->valor_pago}}</td>
+@if($veiculo->tempo_estadia<1440)
+<td>HORA=> R${{ $veiculo->valor_pago}}</td>
+@endif
+@if($veiculo->tempo_estadia>1440)
+<td>DIÁRIA => R${{ $veiculo->valor_pago}}</td>
+@endif
 </tr>
 </tbody>
 </table>

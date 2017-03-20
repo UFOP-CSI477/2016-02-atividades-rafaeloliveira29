@@ -23,10 +23,11 @@ class InserirVeiculoFormRequest extends FormRequest
      */
     public function rules()
     {
+        
         return [
-            'placa' => 'required|alpha',
-            'tipo' => ' required|alpha',
-            'modelo'=>'required|alpha'
+            'placa' => 'required',
+            'tipo' => ' required',
+            'modelo'=>'required'
         ];
     }
 }

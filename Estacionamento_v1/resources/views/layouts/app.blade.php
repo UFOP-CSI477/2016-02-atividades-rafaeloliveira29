@@ -88,13 +88,15 @@
         </nav>
 
         @yield('content')
+        
     </div>
 
     
 <script src="/js/app.js"></script>
-</body>
 <footer class="container-fluid text-center">
 <p>Atividade Final - Sistemas Web - ICEA - UFOP - Sistemas de Informação</p>
   <p>Rafael Souza Oliveira - 13.1.8411 / Michel Wagner Ferreira - #MatriculaMichel © Sistema De Estacionamento. Todos os direitos reservados.</p>
 </footer>
+</body>
+
 </html>
