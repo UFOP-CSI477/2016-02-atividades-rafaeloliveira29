@@ -44,16 +44,29 @@ public function index()
     public function store(request $request)
     {
         //dd($request->all());
+        
+        
         if($request->veiculo_placa == null || $request->veiculo_modelo==null || $request->veiculo_tipo ==null)
+         {
+             $erro ="Existem Campos Vazios!!!\nFavor Retornar,preencher todos os campos e tentar novamente!!";
+            return view('veiculos.erro')->with('erro',$erro);
+       }
+         else if($request->veiculo_placa !=null && $request->veiculo_modelo!=null && $request->veiculo_tipo != null)
+         {
+             if(preg_match("/([A-Za-z]{3}\-[0-9]{4})/", $request->veiculo_placa) )
         {
-            return view('veiculos.erro');
-        }
-        else if($request->veiculo_placa !=null && $request->veiculo_modelo!=null && $request->veiculo_tipo != null)
-        {
-        Veiculo_Temporario::create($request->all());
+           
+         Veiculo_Temporario::create($request->all());
         
         return redirect('/veiculos');
-        }
+         }else
+         {
+                $erro = "A placa foi digitada incorretamente! utilize 3 letras, o divisor '-' e 4 numeros!!";
+              return view('veiculos.erro')->with('erro',$erro);
+            
+       
+         }
+         }
     }
     /**
      * Display the specified resource.
@@ -138,11 +151,15 @@ public function index()
        //$tempo_estadia = $diferenca/60;
 //calculos do valor pago , tempo de estadia e registro da saida 
        $saida_real = Carbon::now();
-       $valor_pago = ($tempo_estadia)*(6);
+       //60 minutos é 6 reais
+       //1 minuto - >0,1
+       $valor_pago = ($tempo_estadia)*(0.1);
        if($tempo_estadia>1440){
-           $dias = $tempo_estadia/24; //calcula quanto dis o cara ficou no estacionamento se o numero de minutos foi maior q um dia,
+           $dias = $tempo_estadia; //calcula quanto dis o cara ficou no estacionamento se o numero de minutos foi maior q um dia,
                                         //para calcular o desconto se der uma diaria.
-            $valor_desconto_diaria = $dias *100;
+                                        //1440 - 100;
+            //1 - >0.069
+            $valor_desconto_diaria = $dias *0.069;
             $veiculo->valor_pago = $valor_desconto_diaria;
 
        }else{

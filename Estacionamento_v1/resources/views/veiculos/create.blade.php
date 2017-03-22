@@ -18,7 +18,7 @@
 
           {{ csrf_field() }}
           <div class="form-group">
-          <label for="placa">Placa:</label>
+          <label for="placa">Placa(XXX-0000):</label>
           <input type="text" name="veiculo_placa">
           </div>
 
